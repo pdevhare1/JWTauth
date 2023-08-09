@@ -28,6 +28,7 @@
 
 <script>
 import axios from "axios";
+import { useToast } from "vue-toastification";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -42,8 +43,9 @@ export default {
   },
   methods: {
     async submit() {
+      const toast = useToast();
+
       try {
-     
         const response = await axios.post(
           "http://localhost:3000/api/auth/login",
           this.data
@@ -51,14 +53,18 @@ export default {
         console.log("Login Response:", response.data);
 
         const token = response.data.token;
-
-        
         localStorage.setItem("token", token);
         console.log("Token stored in localStorage:", token);
 
         this.$router.push("/");
+
+        // Show a success toast
+        toast.success("Login successful!");
       } catch (error) {
         console.warn("Login failed:", error.response.data.message);
+
+        // Show an error toast
+        toast.error("Login failed. Please check your credentials.");
       }
     },
   },

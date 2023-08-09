@@ -38,6 +38,7 @@
 
 <script>
 import axios from "axios";
+import { useToast } from "vue-toastification";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -53,9 +54,11 @@ export default {
   },
   methods: {
     async submit() {
+      const toast = useToast();
+
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/auth/register", // Update the URL here
+          "http://localhost:3000/api/auth/register",
           this.data
         );
         console.log(response.data.message);
@@ -67,8 +70,14 @@ export default {
         localStorage.setItem("userName", user.name);
 
         this.$router.push("/"); // Redirect to home page
+
+        // Show a success toast
+        toast.success("Registration successful!");
       } catch (error) {
         console.error("Registration failed:", error.response.data.message);
+
+        // Show an error toast
+        toast.error("Registration failed. Please check your inputs.");
       }
     },
   },
