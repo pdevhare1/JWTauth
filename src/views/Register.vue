@@ -1,32 +1,36 @@
 <template>
   <form @submit.prevent="submit">
-    <h1 class="h3 mb-3 fw-normal text-center">Please Register</h1>
+    <h1
+      class="h3 mb-3 fw-normal text-center text-uppercase fw-bolder fst-italic text-decoration-underline"
+    >
+      Please Register
+    </h1>
 
-    <div class="form-floating">
+    <div class="form-floating mb-3">
       <input
         v-model="data.name"
         type="name"
-        class="form-control"
+        class="form-control border-success"
         id="floatingName"
         placeholder="Name"
       />
       <label for="floatingName">Name</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mb-3">
       <input
         v-model="data.email"
         type="email"
-        class="form-control"
+        class="form-control border-success"
         id="floatingEmail"
         placeholder="name@example.com"
       />
       <label for="floatingEmail">Email address</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mb-3">
       <input
         v-model="data.password"
         type="password"
-        class="form-control"
+        class="form-control border-success"
         id="floatingPassword"
         placeholder="Password"
       />
@@ -77,7 +81,9 @@ export default {
         console.error("Registration failed:", error.response.data.message);
 
         // Show an error toast
-        toast.error("Registration failed. Please check your inputs.");
+        toast.error(
+          "Registration failed. Please check your inputs else User already exists!"
+        );
       }
     },
   },

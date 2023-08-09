@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Home Page</h1>
     <div v-if="userName">
       <h1>Welcome, {{ userName }}!</h1>
       <button class="btn btn-primary w-100 py-2" type="submit" @click="logout">

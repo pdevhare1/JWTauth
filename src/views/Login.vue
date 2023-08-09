@@ -1,22 +1,26 @@
 <template>
   <form @submit.prevent="submit">
-    <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
+    <h1
+      class="h3 mb-3 fw-normal text-center text-uppercase fw-bolder fst-italic text-decoration-underline"
+    >
+      Please Login
+    </h1>
 
-    <div class="form-floating">
+    <div class="form-floating mb-3">
       <input
         v-model="data.email"
         type="email"
-        class="form-control"
+        class="form-control border-success"
         id="floatingInput"
         placeholder="name@example.com"
       />
       <label for="floatingInput">Email address</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mb-3">
       <input
         v-model="data.password"
         type="password"
-        class="form-control"
+        class="form-control border-success"
         id="floatingPassword"
         placeholder="Password"
       />
