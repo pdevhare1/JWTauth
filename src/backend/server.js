@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const atlasUri =
-  "mongodb+srv://prathameshkali:Id2AWN7iILmqQkmV@cluster0.hjjz6jm.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://Your_api_link";
 
 mongoose
   .connect(atlasUri, { useNewUrlParser: true, useUnifiedTopology: true })
